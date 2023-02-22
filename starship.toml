@@ -1,0 +1,58 @@
+
+add_newline = true   
+format = """
+$username\
+$directory\
+$git_branch\
+$git_status\
+$python\n
+$character"""
+
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                         # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[✖](bold red)"
+
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+
+[directory]
+truncation_length = 3
+truncate_to_repo = false
+style = " dark blue"
+format = "[:$path]($style)"
+
+[git_branch]
+format = ' [ $symbol$branch ]($style) '
+style = "inverted bold blue"
+
+[git_status]
+conflicted = "=${count}"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕${count}"
+up_to_date = "✓"
+untracked = "?${count}"
+modified = "!${count}"
+staged = '+${count}'
+renamed = "»${count}"
+deleted = "✘${count}"
+style = "yellow"
+
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)'
+style = "bold green"
+python_binary = "python3.10"
+# symbol = "ᓚᘏᗢ "
+
+
+[time]
+time_format = "%T"
+format = "🕙 $time($style) "
+style = "bright-white"
+disabled = true
